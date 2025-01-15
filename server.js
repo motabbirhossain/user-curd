@@ -22,9 +22,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', user)
 
+app.get("/", (req, res) => {
+    res.send("Express on Vercel");
+});
+
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, '127.0.0.1', ()=>{
-    console.log(`Server started on port http://127.0.0.1:${port}`);
+app.listen(port, ()=>{
+    console.log(`Server started on port ${port}`);
 });
